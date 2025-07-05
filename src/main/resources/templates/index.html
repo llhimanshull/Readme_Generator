@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" th:href="@{/images/favicon.png}" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+            rel="stylesheet">
+    <title>Read Me</title>
+</head>
+
+<body>
+<div class="main">
+    <nav>
+        <div class="logo">
+            <h1>RM</h1>
+        </div>
+        <div class="nav-item">
+            <a href="/">Home</a>
+            <a href="/about">About us</a>
+            <a href="/review">Review's</a>
+        </div>
+        <div class="login">
+            <a href="/generate">Get Started</a>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="side s1">
+            <h1>ReadMe : Effortless README <br> Generation for Any GitHub Project !</h1>
+            <p>Create stunning, professional-quality <code>README.md</code> files with just a repository link. <br>
+                Whether it's Java, Node.js, Python, or a static website — AutoReadMe intelligently <br> analyzes your
+                code and crafts a tailored README complete with features, tech <br> stack, setup guide, and more.
+            </p>
+        </div>
+        <div class="side s2">
+            <img th:src="@{/images/banner.png}" alt="banner">
+        </div>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+
+</html>

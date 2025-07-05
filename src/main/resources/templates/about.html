@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" th:href="@{/images/favicon.png}" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+            rel="stylesheet">
+    <title>Read Me</title>
+</head>
+
+<body>
+<div class="main">
+    <nav>
+        <div class="logo">
+            <h1>RM</h1>
+        </div>
+        <div class="nav-item">
+            <a href="/">Home</a>
+            <a href="/about">About us</a>
+            <a href="/review">Review's</a>
+        </div>
+        <div class="login">
+            <a href="/generate">Get Started</a>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="side s1">
+            <img th:src="@{/images/me.png}" alt="me">
+        </div>
+        <div class="side s2">
+            <div class="row r1">
+                <h1>About Me</h1>
+            </div>
+            <div class="row r2">
+                <p>Hi, I'm <span>Himanshu Chandekar</span>, a passionate full-stack web developer who enjoys building tools that
+                    simplify and enhance the developer experience. This project was born out of a common need —
+                    creating a professional <code>README.md</code> file without the repetitive formatting work. Just drop your
+                    GitHub repository link, and this tool instantly generates a clean, well-structured README to
+                    showcase your project. Whether you're a beginner or a seasoned developer, it's designed to help
+                    you make a great first impression.
+                    Explore more of my work on GitHub or connect with me on LinkedIn!</p>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+
+</html>

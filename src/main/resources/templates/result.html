@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" th:href="@{/images/favicon.png}" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+            rel="stylesheet">
+    <title>Read Me</title>
+</head>
+
+<body>
+<div class="main">
+    <nav>
+        <div class="logo">
+            <h1>RM</h1>
+        </div>
+        <div class="nav-item">
+            <a href="/">Home</a>
+            <a href="/about">About us</a>
+            <a href="/review">Reviews</a>
+        </div>
+        <div class="login">
+            <span th:if="${isLoggedIn}">
+                <a href="/logout">Logout</a>
+            </span>
+            <span th:if="${!isLoggedIn}">
+                <a href="/oauth2/authorization/google">Sign In</a>
+            </span>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="side s1">
+            <form action="/generate" method="post">
+                <h1>Feed Me</h1>
+
+                <input type="text" name="repoUrl" placeholder="Enter GitHub Repository URL" required>
+                <button type="submit">Generate</button>
+            </form>
+        </div>
+
+        <div class="side s2" style="justify-content: flex-start; align-items: flex-start;">
+            <button class="copy-btn" onclick="checkLoginBeforeCopy()">Copy Markdown</button>
+            <div class="preview" th:utext="${content}"></div>
+            <textarea id="markdownText" style="display:none;" th:text="${readme}"></textarea>
+        </div>
+    </div>
+</div>
+
+<script th:inline="javascript">
+    const isLoggedIn = /*[[${isLoggedIn}]]*/ false;
+
+    function checkLoginBeforeCopy() {
+        if (!isLoggedIn) {
+            alert("🔐 Please sign in with Google to copy the Markdown.");
+            window.location.href = "/oauth2/authorization/google";
+            return;
+        }
+
+        const textarea = document.getElementById('markdownText');
+        textarea.style.display = 'block';
+        textarea.select();
+        textarea.setSelectionRange(0, 99999);
+        document.execCommand("copy");
+        textarea.style.display = 'none';
+        alert("✅ Markdown copied to clipboard!");
+    }
+</script>
+
+</body>
+</html>

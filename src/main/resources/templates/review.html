@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" th:href="@{/images/favicon.png}" type="image/x-icon">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+          href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+          rel="stylesheet">
+  <title>Read Me</title>
+</head>
+
+<body>
+<div class="main">
+  <nav>
+    <div class="logo">
+      <h1>RM</h1>
+    </div>
+    <div class="nav-item">
+      <a href="/">Home</a>
+      <a href="/about">About us</a>
+      <a href="/review">Review's</a>
+    </div>
+    <div class="login">
+            <span th:if="${isLoggedIn}">
+                <a href="/logout">Logout</a>
+            </span>
+      <span th:if="${!isLoggedIn}">
+                <a href="/oauth2/authorization/google">Sign In</a>
+            </span>
+    </div>
+  </nav>
+  <div class="container" style="justify-content: flex-start; flex-direction: column; overflow:auto">
+    <div class="col c1">
+      <div class="row r1">
+        <h1>Eat my Brain</h1>
+      </div>
+      <div class="row r2">
+        <form action="/review/create" method="post">
+
+          <label for="name">Who are You :</label>
+          <input type="text" id="name" name="name" placeholder="Eg :- Iron Man" required>
+
+          <label for="review">Review:</label>
+          <textarea id="review" name="review" rows="4" placeholder="Eg :- What a trash " required></textarea>
+
+          <button type="submit">Submit Review</button>
+        </form>
+      </div>
+    </div>
+    <div class="col c2">
+      <div th:each="r : ${review}" class="review-box">
+        <div class="name" th:text="${r.name}">Reviewer Name</div>
+        <div class="review" th:text="${r.review}">Review content</div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+
+</html>
