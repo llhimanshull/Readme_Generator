@@ -17,4 +17,4 @@ RUN ./mvnw clean package -DskipTests
 EXPOSE 8080
 
 # Run the JAR file (replace with actual jar name if needed)
-CMD ["java", "-jar", "target/ReadMe-0.0.1-SNAPSHOT.jar"]
+CMD ["java", "-jar", "target/ReadMeGenerator-0.0.1-SNAPSHOT.jar"]
