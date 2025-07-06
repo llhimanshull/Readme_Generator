@@ -17,7 +17,21 @@
 
 <body>
 <div class="main">
-  <nav>
+  <nav class="navbar">
+    <div class="logo">
+      <h1>RM</h1>
+    </div>
+    <div class="hamburger" onclick="toggleMenu()">
+      &#9776;
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="/">Home</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/review">Review</a></li>
+      <li><a href="/generate">Get Started</a></li>
+    </ul>
+  </nav>
+  <nav class="navbar2">
     <div class="logo">
       <h1>RM</h1>
     </div>
@@ -27,12 +41,7 @@
       <a href="/review">Review's</a>
     </div>
     <div class="login">
-            <span th:if="${isLoggedIn}">
-                <a href="/logout">Logout</a>
-            </span>
-      <span th:if="${!isLoggedIn}">
-                <a href="/oauth2/authorization/google">Sign In</a>
-            </span>
+      <a href="/generate">Get Started</a>
     </div>
   </nav>
   <div class="container" style="justify-content: flex-start; flex-direction: column; overflow:auto">
@@ -61,7 +70,11 @@
     </div>
   </div>
 </div>
-<script src="script.js"></script>
+<script>
+  function toggleMenu() {
+      document.getElementById("navLinks").classList.toggle("active");
+  }
+</script>
 </body>
 
 </html>

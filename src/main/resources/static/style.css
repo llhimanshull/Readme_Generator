@@ -74,6 +74,10 @@ nav {
     /* background: var(--neon); */
 }
 
+.navbar{
+    display: none;
+}
+
 .logo {
     display: flex;
     justify-content: center;
@@ -476,4 +480,142 @@ form label{
     font-size: 14px;
     line-height: 1.6;
     color: var(--neon);
+}
+
+@media screen and (max-width: 768px) {
+
+    .main {
+        padding: 0px 10px;
+        overflow-y:auto;
+        overflow-x: hidden;
+    }
+
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 8px;
+        margin: 3px;
+        z-index: 99999;
+    }
+
+    .navbar .logo h1{
+        width: fit-content;
+        height: fit-content;
+        padding: 2px;
+        margin: 0px;
+        background-color: var(--neon);
+        color: var(--black);
+        border-bottom: 1px solid var(--neon);
+    }
+    .navbar .logo {
+        width: fit-content;
+        height: fit-content;
+        padding: 0px;
+    }
+
+    .navbar2{
+        display: none;
+    }
+
+    .hamburger {
+        display: block;
+        color: var(--neon);
+        font-size: 24px;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: var(--neon);
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+        padding: 0px 18px;
+        text-align: center;
+    }
+
+    .nav-links.active {
+        display: flex;
+        width: 100%;
+        height: 30%;
+        margin: 18px 0px;
+        justify-content: space-evenly;
+    }
+
+    .nav-links li {
+        list-style-type: none;
+        color: var(--black);
+        text-align: left;
+        border: 1px solid var(--black);
+        padding: 6px 22px;
+    }
+
+    .nav-links li a {
+        color: var(--black);
+        font-family: "bodoni moda", serif;
+        font-weight: 800;
+        text-transform: uppercase;
+        font-size: 16px;
+        text-decoration: none;
+        border-bottom: 1px solid var(--black);
+    }
+    .nav-links li:nth-child(2) {
+        text-align: right;
+    }
+    .nav-links li:nth-child(4) {
+        background-color: var(--black);
+        text-align: center;
+    }
+    .nav-links li:nth-child(4) a {
+        color: var(--neon);
+    }
+
+    .container{
+        width: 100%;
+        min-height: fit-content;
+        flex-direction: column;
+        align-items: center;
+        padding: 0px 8px;
+        overflow-y: auto;
+    }
+    .container h1{
+        font-size: 22px;
+    }
+    .container p{
+        font-size: 12px;
+        text-align: center;
+    }
+    .container .side {
+        width: 100%;
+        min-height: fit-content;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .container .s1 {
+        width: 100%;
+        min-height: fit-content;
+        padding: 0px;
+        gap: 10px;
+    }
+
+    .container .s1 form {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        height: fit-content;
+        padding: 0px;
+        gap: 10px;
+    }
+
+    .container .s2 button{
+        width: fit-content;
+    }
+
+    form button{
+        width: fit-content;
+        text-wrap: nowrap;
+    }
+
 }

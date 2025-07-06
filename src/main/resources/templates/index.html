@@ -16,7 +16,21 @@
 
 <body>
 <div class="main">
-    <nav>
+    <nav class="navbar">
+        <div class="logo">
+            <h1>RM</h1>
+        </div>
+        <div class="hamburger" onclick="toggleMenu()">
+            &#9776;
+        </div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/review">Review</a></li>
+            <li><a href="/generate">Get Started</a></li>
+        </ul>
+    </nav>
+    <nav class="navbar2">
         <div class="logo">
             <h1>RM</h1>
         </div>
@@ -42,6 +56,11 @@
         </div>
     </div>
 </div>
+<script>
+    function toggleMenu() {
+        document.getElementById("navLinks").classList.toggle("active");
+    }
+</script>
 <script src="script.js"></script>
 </body>
 
