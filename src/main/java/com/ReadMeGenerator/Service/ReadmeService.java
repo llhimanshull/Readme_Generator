@@ -27,7 +27,10 @@ public class ReadmeService {
 
     public void coundGenerated(){
          String id = "readme-generated";
-         if(countRepository.existsById(id)){
+         if(countRepository.findAll().isEmpty()){
+             Count count = new Count(id , 0);
+             countRepository.save(count);
+         }else if(countRepository.existsById(id)) {
              Optional<Count> optionalCount = countRepository.findById(id);
              Count newCount = optionalCount.get();
 
@@ -36,10 +39,7 @@ public class ReadmeService {
              newCount.setCount(++oldCount);
 
              countRepository.save(newCount);
-         }else{
-             Count count = new Count(id , 0);
-             countRepository.save(count);
-        }
+         }
 
     }
 
