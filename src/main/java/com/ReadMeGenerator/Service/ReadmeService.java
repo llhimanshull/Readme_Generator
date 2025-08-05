@@ -8,6 +8,7 @@ import org.commonmark.renderer.html.HtmlRenderer;
 import org.eclipse.jgit.api.Git;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -23,6 +24,7 @@ public class ReadmeService {
     @Value("${GROQ_API_KEY}")
     private String GROQ_API_KEY;
 
+    @Autowired
     private CountRepository countRepository;
 
     public void coundGenerated(){
