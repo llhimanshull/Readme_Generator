@@ -1,5 +1,7 @@
 package com.ReadMeGenerator.Service;
 
+import com.ReadMeGenerator.Model.Count;
+import com.ReadMeGenerator.Repository.CountRepository;
 import org.commonmark.node.Node;
 import org.commonmark.parser.Parser;
 import org.commonmark.renderer.html.HtmlRenderer;
@@ -21,6 +23,26 @@ public class ReadmeService {
     @Value("${GROQ_API_KEY}")
     private String GROQ_API_KEY;
 
+    private CountRepository countRepository;
+
+    public void coundGenerated(){
+         String id = "readme-generated";
+         if(countRepository.existsById(id)){
+             Optional<Count> optionalCount = countRepository.findById(id);
+             Count newCount = optionalCount.get();
+
+             int oldCount = newCount.getCount();
+
+             newCount.setCount(++oldCount);
+
+             countRepository.save(newCount);
+         }else{
+             Count count = new Count(id , 0);
+             countRepository.save(count);
+        }
+
+    }
+
     public String generateReadmeFromRepo(String repoUrl) {
         String tmpDir = System.getProperty("java.io.tmpdir") + "/repo-" + UUID.randomUUID();
         try {
@@ -36,6 +58,8 @@ public class ReadmeService {
 
             // ✨ Inject emojis if Groq doesn't include them
             markdown = injectEmojis(markdown);
+
+            coundGenerated();
 
             return markdown;
 

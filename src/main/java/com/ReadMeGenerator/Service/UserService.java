@@ -33,6 +33,7 @@ public class UserService {
                 Users users = new Users(name , email);
                 userRepository.save(users);
             }
+
         }
     }
 }
